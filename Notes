@@ -1,0 +1,33 @@
+All Schedule 8 TPUUs
+(<30497011000036103 AND ^1050951000168102)
+
+AMT_Opioid valueset
+"url": "snoyowie.com/AMT_opioids",
+    "version": "1",
+    "name": "AMT_Opioids"
+{{url}}/ValueSet?name=AMT_Opioids
+{{url}}/ValueSet/be235539-14a9-486c-82a3-89118e205359/$expand
+
+All MPs cotaining a couple of ingredients
+<30497011000036103:<762951001=(2013011000036109 OR 1247181000168102)
+
+All MPs cotaining a VS
+<30497011000036103:<762951001=^VS
+All MPUUs containg a couple
+^929360071000036103:<762951001=(1880011000036103 OR 1071021000168101)
+^929360071000036103:<762951001=VS
+
+if ECL contains VS
+  {Expand+replace}
+
+
+Methods Required:
+Translate_SubstanceValueSet(string ECL)
+  results = Expand(ECL)
+  for each result
+    Translate(result)
+    if Yes -> Add to VS
+  return VS
+  
+VS->List()
+VS->(X or Y...)
