@@ -1,0 +1,11 @@
+C:\Repos\ConnectathonMarch2019\ConsoleApp\bin\Debug\netcoreapp2.1\ConsoleApp.deps.json
+C:\Repos\ConnectathonMarch2019\ConsoleApp\bin\Debug\netcoreapp2.1\ConsoleApp.runtimeconfig.json
+C:\Repos\ConnectathonMarch2019\ConsoleApp\bin\Debug\netcoreapp2.1\ConsoleApp.runtimeconfig.dev.json
+C:\Repos\ConnectathonMarch2019\ConsoleApp\bin\Debug\netcoreapp2.1\ConsoleApp.dll
+C:\Repos\ConnectathonMarch2019\ConsoleApp\bin\Debug\netcoreapp2.1\ConsoleApp.pdb
+C:\Repos\ConnectathonMarch2019\ConsoleApp\obj\Debug\netcoreapp2.1\ConsoleApp.csprojAssemblyReference.cache
+C:\Repos\ConnectathonMarch2019\ConsoleApp\obj\Debug\netcoreapp2.1\ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Repos\ConnectathonMarch2019\ConsoleApp\obj\Debug\netcoreapp2.1\ConsoleApp.AssemblyInfoInputs.cache
+C:\Repos\ConnectathonMarch2019\ConsoleApp\obj\Debug\netcoreapp2.1\ConsoleApp.AssemblyInfo.cs
+C:\Repos\ConnectathonMarch2019\ConsoleApp\obj\Debug\netcoreapp2.1\ConsoleApp.dll
+C:\Repos\ConnectathonMarch2019\ConsoleApp\obj\Debug\netcoreapp2.1\ConsoleApp.pdb
