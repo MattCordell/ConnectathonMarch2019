@@ -31,3 +31,18 @@ Translate_SubstanceValueSet(string ECL)
   
 VS->List()
 VS->(X or Y...)
+
+
+=====TRANSLATE====
+https://ontoserver.csiro.au/stu3-latest/ConceptMap/$translate
+url=http://snomed.info/sct?fhir_cm=281000036105
+source=
+target=
+
+https://ontoserver.csiro.au/stu3-latest/ConceptMap/$translate?
+url=http://snomed.info/sct?fhir_cm=281000036105&
+source=http://snomed.info/sct?fhir_vs
+code=31199011000036100&
+target=http://snomed.info/sct?fhir_vs
+system=http://snomed.info/sct
+
