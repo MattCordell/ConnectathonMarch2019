@@ -26,9 +26,83 @@ namespace ConsoleApp
             Console.WriteLine(result.Expansion.Total + " results total");
             Console.WriteLine(result.Expansion.Contains.FirstOrDefault().Display);
 
-            var dict = VStoDictionary(result);
+            //var dict = VStoDictionary(result);
 
-            var trans = client.TranslateConcept("2442011000036104",)
+
+            Console.WriteLine("Let's try translate!");
+            #region TRANSLATE
+            var revsertTranslateParameters = new Parameters
+            {
+                Parameter = new List<Parameters.ParameterComponent>
+               {
+                  new Parameters.ParameterComponent
+                  {
+                    Name = "url",
+                    Value = new FhirUri("http://snomed.info/sct?fhir_cm=281000036105")
+                  },
+                  new Parameters.ParameterComponent
+                  {
+                    Name = "system",
+                    Value = new FhirUri("http://snomed.info/sct")
+                  },
+                  new Parameters.ParameterComponent
+                  {
+                    Name = "code",
+                    Value = new FhirString("419442005")
+                  },
+                  new Parameters.ParameterComponent
+                  {
+                    Name = "target",
+                    Value = new FhirUri("http://snomed.info/sct")
+                  },
+                  new Parameters.ParameterComponent
+                  {
+                    Name = "reverse",
+                    Value = new FhirBoolean(true)
+                  }
+                 }
+            };
+
+            var transResult = (Parameters)client.TypeOperation<ConceptMap>("translate", revsertTranslateParameters);
+
+            //
+            Console.WriteLine(transResult.Parameter.First().Name + " : " + transResult.Parameter.First().Value.ToString());
+
+            foreach (var match in transResult.Parameter.Where<Parameters.ParameterComponent>(e => e.Name=="match"))
+            {
+                //var coding = match.Part.Where<Parameters.ParameterComponent>(e => e.Name == "concept");
+                //This workds
+                //var coding1 = match.Part[1].Value;
+                var valueCoding = match.Part.Where<Parameters.ParameterComponent>(p => p.Name.Equals("concept")).FirstOrDefault();
+
+                var coding = (Coding)valueCoding.Value;
+                
+                Console.WriteLine(coding.Code + " " + coding.Display);
+
+            }
+            #endregion TRANSLATE
+
+            #region search
+            var substanceECL = "http://snomed.info/sct?fhir_vs=ecl/<<105590001";
+            var resultSizeLimit = 5;
+            var searchFilter = "morphi";
+
+            
+            var Newresult = client.ExpandValueSet(new FhirUri(substanceECL), new FhirString(searchFilter));
+
+            var x = Newresult.Expansion.Contains;
+            foreach (var item in x)
+            {
+                Console.WriteLine(item.Code + " | " + item.Display);
+            }
+
+
+            #endregion search
+
+            Console.WriteLine("Done");
+
+
+
 
             Console.ReadKey();
         }
