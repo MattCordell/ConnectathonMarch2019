@@ -1,0 +1,19 @@
+Basic synthesis will consist of patient entries with a TPUU and Associated Diagnosis
+Associated Diagnosis limited to 
+<<pain, <<infection,<< Traumatic Injury
+
+No enforcement of sensible pairings, but meh... Should generate enough combos
+
+-- TPUUs
+select id, get_cr_ADRS_PT(referencedComponentId) from rf2_lr_refset_active
+where refsetId = 929360031000036100;
+-- Aprox 17,600 TPUUs!
+
+-- Associated Diagnosis
+SELECT id, get_cr_ADRS_PT(id)  FROM rf2_lr_concepts_active
+WHERE (isKindOf_cr(id, 22253000) -- <<pain
+OR isKindOf_cr(id, 40733004) -- <<infection
+OR isKindOf_cr(id, 417746004) -- << Traumatic Injury
+)
+AND NOT isActiveMemberOf_cr_refset(id, 171991000036103); -- Grouper Exclusion
+-- Approx 16,500
